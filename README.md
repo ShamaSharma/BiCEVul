@@ -52,7 +52,7 @@ If you use this code or find this work useful, please cite:
 ```bibtex
 @article{bicevul,
   title={Bidirectional Cross-Attention Fusion of Code and LLM-Generated Explanations for Software Vulnerability Detection},
-  author={Sharma, Shama},
+  author={Shama,Sarika},
   journal={Information Fusion},
   year={2026}
 }
