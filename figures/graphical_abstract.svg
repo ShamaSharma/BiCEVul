@@ -1,0 +1,102 @@
+<svg viewBox="0 0 1400 620" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3a3a3a"/>
+    </marker>
+    <linearGradient id="codeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2b6cb0"/>
+      <stop offset="100%" stop-color="#1a4971"/>
+    </linearGradient>
+    <linearGradient id="expGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c05621"/>
+      <stop offset="100%" stop-color="#8c3c14"/>
+    </linearGradient>
+    <linearGradient id="fuseGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#553c9a"/>
+      <stop offset="100%" stop-color="#3a2768"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="620" fill="#ffffff"/>
+  <text x="700" y="38" text-anchor="middle" font-size="24" font-weight="700" fill="#1a1a1a">BiCEVul: Bidirectional Cross-Attention Fusion for Vulnerability Detection</text>
+
+  <!-- Input: Code -->
+  <rect x="40" y="90" width="190" height="70" rx="10" fill="#edf2f7" stroke="#2b6cb0" stroke-width="2"/>
+  <text x="135" y="118" text-anchor="middle" font-size="14" font-weight="600" fill="#1a365d">Source Code</text>
+  <text x="135" y="138" text-anchor="middle" font-size="11" fill="#2d3748">function snippet</text>
+
+  <!-- Input: Explanation -->
+  <rect x="40" y="430" width="190" height="70" rx="10" fill="#fffaf0" stroke="#c05621" stroke-width="2"/>
+  <text x="135" y="458" text-anchor="middle" font-size="14" font-weight="600" fill="#7b341e">LLM Explanation</text>
+  <text x="135" y="478" text-anchor="middle" font-size="11" fill="#2d3748">GPT-4 generated</text>
+
+  <!-- Encoders -->
+  <rect x="280" y="90" width="180" height="70" rx="10" fill="url(#codeGrad)"/>
+  <text x="370" y="120" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Code Encoder</text>
+  <text x="370" y="140" text-anchor="middle" font-size="11" fill="#e2e8f0">CLS pooling</text>
+
+  <rect x="280" y="430" width="180" height="70" rx="10" fill="url(#expGrad)"/>
+  <text x="370" y="460" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Explanation Encoder</text>
+  <text x="370" y="480" text-anchor="middle" font-size="11" fill="#fbd38d">shared architecture</text>
+
+  <line x1="230" y1="125" x2="280" y2="125" stroke="#3a3a3a" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="230" y1="465" x2="280" y2="465" stroke="#3a3a3a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Bidirectional cross-attention block -->
+  <rect x="540" y="200" width="260" height="220" rx="14" fill="#f7fafc" stroke="#4a5568" stroke-width="2"/>
+  <text x="670" y="228" text-anchor="middle" font-size="14" font-weight="700" fill="#1a202c">Bidirectional Cross-Attention</text>
+
+  <rect x="565" y="250" width="210" height="44" rx="8" fill="#4299e1"/>
+  <text x="670" y="277" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Code-to-Explanation (C2E)</text>
+
+  <rect x="565" y="308" width="210" height="44" rx="8" fill="#ed8936"/>
+  <text x="670" y="335" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Explanation-to-Code (E2C)</text>
+
+  <text x="670" y="372" text-anchor="middle" font-size="11" fill="#4a5568">learnable alpha gates</text>
+  <text x="670" y="392" text-anchor="middle" font-size="11" fill="#4a5568">three-stream output</text>
+
+  <line x1="460" y1="125" x2="540" y2="250" stroke="#3a3a3a" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="460" y1="465" x2="540" y2="330" stroke="#3a3a3a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Multi-scale pooling -->
+  <rect x="850" y="150" width="230" height="320" rx="14" fill="#f7fafc" stroke="#4a5568" stroke-width="2"/>
+  <text x="965" y="178" text-anchor="middle" font-size="14" font-weight="700" fill="#1a202c">Adaptive Multi-Scale</text>
+  <text x="965" y="196" text-anchor="middle" font-size="14" font-weight="700" fill="#1a202c">Pooling</text>
+
+  <rect x="875" y="215" width="180" height="36" rx="6" fill="#9f7aea"/>
+  <text x="965" y="238" text-anchor="middle" font-size="11" fill="#fff">Code stream</text>
+
+  <rect x="875" y="262" width="180" height="36" rx="6" fill="#9f7aea"/>
+  <text x="965" y="285" text-anchor="middle" font-size="11" fill="#fff">Explanation stream</text>
+
+  <rect x="875" y="309" width="180" height="36" rx="6" fill="#9f7aea"/>
+  <text x="965" y="332" text-anchor="middle" font-size="11" fill="#fff">Cross-attended stream</text>
+
+  <text x="965" y="368" text-anchor="middle" font-size="11" fill="#4a5568">sigmoid-gated selection</text>
+  <text x="965" y="386" text-anchor="middle" font-size="11" fill="#4a5568">across pooling scales</text>
+
+  <line x1="800" y1="310" x2="850" y2="310" stroke="#3a3a3a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Hierarchical fusion -->
+  <rect x="1150" y="220" width="200" height="180" rx="14" fill="url(#fuseGrad)"/>
+  <text x="1250" y="250" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Hierarchical</text>
+  <text x="1250" y="268" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Softmax Fusion</text>
+  <text x="1250" y="296" text-anchor="middle" font-size="11" fill="#e9d8fd">unified vulnerability</text>
+  <text x="1250" y="312" text-anchor="middle" font-size="11" fill="#e9d8fd">representation</text>
+
+  <rect x="1185" y="335" width="130" height="40" rx="8" fill="#ffffff"/>
+  <text x="1250" y="360" text-anchor="middle" font-size="12" font-weight="700" fill="#3a2768">Classifier</text>
+
+  <line x1="1080" y1="310" x2="1150" y2="310" stroke="#3a3a3a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Output -->
+  <rect x="1150" y="450" width="200" height="60" rx="10" fill="#f0fff4" stroke="#276749" stroke-width="2"/>
+  <text x="1250" y="475" text-anchor="middle" font-size="13" font-weight="700" fill="#22543d">Vulnerable / Safe</text>
+  <text x="1250" y="493" text-anchor="middle" font-size="10" fill="#2d3748">binary classification</text>
+
+  <line x1="1250" y1="400" x2="1250" y2="450" stroke="#3a3a3a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Footer -->
+  <text x="700" y="560" text-anchor="middle" font-size="12" fill="#718096">Datasets: Devign &#183; Reveal &#183; TrVD</text>
+  <text x="700" y="582" text-anchor="middle" font-size="12" fill="#718096">State-of-the-art AUC: 0.646 (Devign) &#183; 0.962 (TrVD)</text>
+</svg>

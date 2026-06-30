@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+venv/
+.env
+
+# Data and large artifacts
+data/*.csv
+data/*.json
+data/*.jsonl
+data/*.pkl
+data/raw/
+*.pt
+*.pth
+*.bin
+*.ckpt
+checkpoints/
+runs/
+wandb/
+outputs/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
